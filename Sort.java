@@ -50,28 +50,30 @@ public class Sort {
         File here = new File(".");
     	System.out.println(here.getAbsolutePath());*/
         try{
-        	Scanner scanner = new Scanner(new File("C:\\Users\\gozde\\workspace\\exercises\\parameters.txt"));
-        	int size = scanner.nextInt();
-        	int test[] = new int[size];
-        	
-        	int i=0;
-        	while(scanner.hasNextInt()){
-        		test[i++] = scanner.nextInt();
-        	}
-        	System.out.println("before");
-        	for (i = 0; i < size; i++)
-                System.out.print(" " + test[i]);
-            System.out.println();
+		Scanner scanner = new Scanner(new File("C:\\Users\\gozde\\workspace\\exercises\\parameters.txt"));
+		int size = scanner.nextInt();
+		int test[] = new int[size];
+		
+		int i=0;
+		while(scanner.hasNextInt()){
+			test[i++] = scanner.nextInt();
+		}
+		System.out.println("before");
+		
+		for (i = 0; i < size; i++)
+	        	System.out.print(" " + test[i]);
+	    	System.out.println();
+	
+	    	sort(test, size);
+	    
+	    	System.out.println("after");
+	    	
+		for (i = 0; i < size; i++)
+	        	System.out.print(" " + test[i]);
+	    	System.out.println();
 
-            sort(test, size);
-            
-            System.out.println("after");
-            for (i = 0; i < size; i++)
-                System.out.print(" " + test[i]);
-            System.out.println();
-
         	
-        }
+       }
        catch(FileNotFoundException ex){
         	System.out.println("file not found");
        }
