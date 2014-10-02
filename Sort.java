@@ -1,11 +1,18 @@
 package net.infoowl.exercises;
-import java.util.*;
-import java.io.*;
-import java.util.Random;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.Scanner;
 
-class Sort{
-    /** Sort the array a[] in ascending order
+public class Sort {
+
+	
+	// TODO Auto-generated method stub
+
+	/** Sort the array a[] in ascending order
      ** using an insertion sort.
      */
     static void sort(int a[], int size) {
@@ -32,46 +39,51 @@ class Sort{
 
     /** Test program to test sort */
     public static void main(String argv[]) {
-        if (argv.length < 2) {
+     /*   if (argv.length < 2) {
            usage();
         }
-        int size = Integer.parseInt(argv[0]);
-        if (size != argv.length-1){
+      //  int size = Integer.parseInt(argv[0]);
+/*        if (size != argv.length-1){
         	usage();
         }
-        int test[] = new int[size];
-        
-        Properties p = new Properties();
-        
+       
         File here = new File(".");
-    	System.out.println(here.getAbsolutePath());
+    	System.out.println(here.getAbsolutePath());*/
         try{
-        	File file=new File("C:\\Users\\gozde\\workspace\\deneme\\parameters.txt");
-            //System.out.println(file.exists());
-            Scanner scan=new Scanner(file);
+        	Scanner scanner = new Scanner(new File("C:\\Users\\gozde\\workspace\\exercises\\parameters.txt"));
+        	int size = scanner.nextInt();
+        	int test[] = new int[size];
+        	
+        	int i=0;
+        	while(scanner.hasNextInt()){
+        		test[i++] = scanner.nextInt();
+        	}
+        	System.out.println("before");
+        	for (i = 0; i < size; i++)
+                System.out.print(" " + test[i]);
+            System.out.println();
+
+            sort(test, size);
+            
+            System.out.println("after");
+            for (i = 0; i < size; i++)
+                System.out.print(" " + test[i]);
+            System.out.println();
+
         	
         }
-        catch(FileNotFoundException ex){
+       catch(FileNotFoundException ex){
         	System.out.println("file not found");
        }
-        catch(IOException ex){
+       catch(IOException ex){
         	
-        }
+       }
 
-        for (int i = 0; i < size; i++)
-            test[i] = Integer.parseInt(argv[i+1]);
-        System.out.println("before");
-        for (int i = 0; i < size; i++)
-            System.out.print(" " + test[i]);
-        System.out.println();
-
-        sort(test, size);
-
-        System.out.println("after");
-        for (int i = 0; i < size; i++)
-            System.out.print(" " + test[i]);
-        System.out.println();
-
+   //      for (int i = 0; i < size; i++)
+    //        test[i] = Integer.parseInt(argv[i+1]);
+       
         System.exit(0);
     }
 }
+
+
